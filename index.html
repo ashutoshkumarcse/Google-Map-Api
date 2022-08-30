@@ -1,0 +1,786 @@
+<html>
+  <head>
+    <title>Simple Map</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel = "stylesheet" href = "style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="header">
+    LINK  PLANNING  TOOL
+    </div>
+    <div class="containerA">
+      <div class="row ">
+        
+        <div class="col-4" id = "format1">
+          <div class = "container1 sidebar_padding">
+            <div class = "row">
+              <div class = "col-6 ">
+                <div>Enter the Address:</div>
+                <div><input id="searchboxA" class = "func"type="text" size="20" placeholder="Origin"/>  
+                <input id="searchboxB" class = "func"type="text" size="20" placeholder="Destination"/> 
+                </div> 
+              </div>
+            
+                <div class = "col-6 sidebar_padding">
+                <div>Enter the Cordinates:</div>
+                <div><input id="lat1lon1" class = "func"type="text" size="20" placeholder="Origin"/>  
+                  <input id="lat2lon2" class = "func"type="text" size="20" placeholder="Destination"/> 
+                  </div>
+              </div>
+           </div>
+           </div> 
+             <div class = "container2 sidebar_padding">
+              <div class = "row">
+                <div class = "col-6">
+                  <div>Frequency Bandwith:</div> 
+            <div><select
+              name = "Bandwidth"
+              id = "Bandwidth" class = "func"
+              onchange="populatefreqency();snr()"
+              >
+            
+              <option value =  ""hidden>Channel Bandwith</option>
+              <option value = "20" selected>20</option>
+              <option value = "40">40</option>
+              <option value = "80">80</option>
+              </select> 
+            
+            </div>
+                </div>
+                <div class = "col-6 ">
+                  <div>Channel Frequency :</div>    
+            <div><select name = "Frequency" id = "channelFrequency"  class = "func"onchange = "calculateeirp()">
+              <option value =  "5160" selected>5160 </option>
+              <option value =  "5165" selected>5165</option>
+              <option value =  "5170" selected>5170</option>
+              <option value =  "5175" selected>5175</option>
+              <option value =  "5180" selected>5180</option>
+              <option value =  "5185" selected>5185</option>
+              <option value =  "5190" selected>5190</option>
+              <option value =  "5195" selected>5195</option>
+              <option value =  "5200" selected>5200</option>
+              <option value =  "5205" selected>5205</option>
+              <option value =  "5210" selected>5210</option>
+              <option value =  "5215" selected>5215</option>
+              <option value =  "5220" selected>5220</option>
+              <option value =  "5225" selected>5225</option>
+              <option value =  "5230" selected>5230</option>
+              <option value =  "5235" selected>5235</option>
+              <option value =  "5240" selected>5240</option>
+              <option value =  "5260" selected>5260</option>
+              <option value =  "5265" selected>5265</option>
+              <option value =  "5270" selected>5270</option>
+              <option value =  "5275" selected>5275</option>
+              <option value =  "5280" selected>5280</option>
+              <option value =  "5285" selected>5285</option>
+              <option value =  "5290" selected>5290</option>
+              <option value =  "5295" selected>5295</option>
+              <option value =  "5300" selected>5300</option>
+              <option value =  "5310" selected>5310</option>
+              <option value =  "5315" selected>5315</option>
+              <option value =  "5320" selected>5320</option>
+              <option value =  "5500" selected>5500</option>
+              <option value =  "5505" selected>5505</option>
+              <option value =  "5510" selected>5510</option>
+              <option value =  "5515" selected>5515</option>
+              <option value =  "5520" selected>5520</option>
+              <option value =  "5525" selected>5525</option>
+              <option value =  "5530" selected>5530</option>
+              <option value =  "5535" selected>5535</option>
+              <option value =  "5540" selected>5540</option>
+              <option value =  "5545" selected>5545</option>
+              <option value =  "5550" selected>5550</option>
+              <option value =  "5555" selected>5555</option>
+              <option value =  "5560" selected>5560</option>
+              <option value =  "5565" selected>5565</option>
+              <option value =  "5570" selected>5570</option>
+              <option value =  "5575" selected>5575</option>
+              <option value =  "5580" selected>5580</option>
+              <option value =  "5585" selected>5585</option>
+              <option value =  "5585" selected>55</option>
+              <option value =  "5585" selected>5585</option>
+              <option value =  "5585" selected>5585</option>
+              <option value =  "5585" selected>5585</option>
+              <option value =  "5590" selected>5590</option>
+              <option value =  "5595" selected>5595</option>
+              <option value =  "5600" selected>5600</option>
+              <option value =  "5605" selected>5605</option>
+              <option value =  "5610" selected>5610</option>
+              <option value =  "5615" selected>5615</option>
+              <option value =  "5620" selected>5620</option>
+              <option value =  "5625" selected>5625</option>
+              <option value =  "5630" selected>5630</option>
+              <option value =  "5635" selected>5635</option>
+              <option value =  "5640" selected>5640</option>
+              <option value =  "5645" selected>5645</option>
+              <option value =  "5650" selected>5650</option>
+              <option value =  "5655" selected>5655</option>
+              <option value =  "5660" selected>5660</option>
+              <option value =  "5665" selected>5665</option>
+              <option value =  "5670" selected>5670</option>
+              <option value =  "5675" selected>5675</option>
+              <option value =  "5680" selected>5680</option>
+              <option value =  "5685" selected>5685</option>
+              <option value =  "5690" selected>5690</option>
+              <option value =  "5695" selected>5695</option>
+              <option value =  "5700" selected>5700</option>
+              <option value =  "5705" selected>55705</option>
+              <option value =  "5710" selected>5710</option>
+              <option value =  "5715" selected>5715</option>
+              <option value =  "5735" selected>5735</option>
+              <option value =  "5740" selected>5740</option>
+              <option value =  "5745" selected>5745</option>
+              <option value =  "5750" selected>5750</option>
+              <option value =  "5755" selected>5755</option>
+              <option value =  "5760" selected>5760</option>
+              <option value =  "5765" selected>5765</option>
+              <option value =  "5770" selected>5770</option>
+              <option value =  "5775" selected>5775</option>
+              <option value =  "5780" selected>5780</option>
+              <option value =  "5785" selected>5785</option>
+              <option value =  "5790" selected>5790</option>
+              <option value =  "5795" selected>5795</option>
+              <option value =  "5800" selected>5800</option>
+              <option value =  "5805" selected>5805</option>
+              <option value =  "5810" selected>5810</option>
+              <option value =  "5815" selected>5815</option>
+              <option value =  "5820" selected>5820</option>
+              <option value =  "5825" selected>5825</option>
+              <option value =  "5830" selected>5830</option>
+              <option value =  "5835" selected>5835</option>
+              <option value =  "5840" selected>5840</option>
+              <option value =  "5845" selected>5845</option>
+              <option value =  "5850" selected>5850</option>
+              <option value =  "5855" selected>5855</option>
+              <option value =  "5860" selected>5860</option>
+              <option value =  "5865" selected>5865</option>
+            </select>
+            </div>    
+                </div>
+                
+              </div>
+              <div class = "row">
+                <div class = "col-6 sidebar_padding">
+                <div>Choose Radio A :</div>
+                <div><select name = "radioA" id = "radioA" class = "func"
+                      onchange="Radio();snr()">
+                    <option value = ""hidden>Radio A</option>
+                    <option value="17" selected>ion4l1_bts</option>
+                    <option value="19">ion4l2_bts</option>
+                    <option value="23">ion4l2</option>
+                    <option value="23">ion4l2_cpe</option>
+                    <option value="25">ion4l3</option>
+                    <option value="25">ion4l3_cpe</option>
+                    <option value="27">ion4l4</option>
+                    <option value="0">ion4le</option></select>
+                </div>
+                </div>
+             
+                <div class = "col-6 sidebar_padding">
+                <div>Choose Radio B:</div>
+                 <div> <select name = "radioB" id = "radioB"class = "func"
+                      onchange="Radio();snr()">
+                      <option value = ""hidden>Radio B</option>
+                      <option value="17" selected>ion4l1_bts</option>
+                    <option value="19">ion4l2_bts</option>
+                    <option value="23">ion4l2</option>
+                    <option value="23">ion4l2_cpe</option>
+                    <option value="25">ion4l3</option>
+                    <option value="25">ion4l3_cpe</option>
+                    <option value="27">ion4l4</option>
+                    <option value="0">ion4le</option></select>
+                    
+                  </div>
+                </div>
+              </div>
+             </div>
+             <div class = "container3 sidebar_padding">
+              <div class = "row">
+                <div class = "col-6">
+                  <div>Link Distance:</div>
+              <div> <input type="text" id="linkDistance"class = "func" disabled></div>
+                </div>
+                <div class = "col-6">
+                  <div>Fresnel Radius:</div>
+              <div><input type="text" id="fresnelRadius"class = "func" /></div>
+                </div>
+              </div>
+              <div class ="row">
+                <div class = "col-6">
+                  <div>SNR :</div>
+                  <div><input type = "text" name = "snra" id = "snra"class = "func"placeholder ="SNR A"onchange="snr()" >
+                    <input type = "text"name = "snrb" id = "snrb" class = "func" placeholder="SNR B"></div> 
+                </div>
+                <div class = "col-6">
+                  <div> EIRP:</div><div><input type = "text" id = "eirpvalue"class = "func" placeholder="EIRP " disabled></div> 
+                </div>
+              </div>
+             </div>
+              
+        
+         
+          
+       
+          
+            
+          <div><button type = "button" id = "openbutton" onclick="showdiv();loadmap();displaypathelevation();Radio();report()">Generate Report</button></div> 
+        </div>
+        <div class= "col-8" id = "format2">
+          <div id="map"></div>
+          
+        </div>
+      </div>
+  
+    </div>
+            
+        
+          
+  
+   
+   
+ 
+
+<div  id = "dis">
+  <div><button type = "button"id = "closebutton" onclick = "hidediv()"> X</button>
+  </div>
+ 
+
+  
+ 
+ <div class="containerB">
+   <div class="row">
+     <div class="col-lg-6 col-6" id = "firstcontainer">
+     <table id = "table1" class = "table">
+        <h3  style= background-color:darksalmon>LINK SETTING</h3>
+        <tr>
+          <th></th>
+          <th>Site A</th>
+          <th>Site B</th>
+        </tr>
+        <tr>
+          <td>channel bandwidth:</td>
+          <td><input type = "text"
+            name = "Bandwidth"
+            id = "Bandwidtha" class = "func"
+            onchange="report()"
+            ></td>
+            <td><input type ="text"
+              name = "Bandwidth"
+              id = "Bandwidthb" class = "func"
+              onchange="report()"
+              ></td>
+        </tr>
+        <tr>
+          <td>channelFrequency:</td>
+          <td><input type = "text" name = "Frequency" id = "channelFrequencya"  class = "func" onclick = "report"></td>
+          <td><input type = "text" name = "Frequency" id = "channelFrequencyb"  class = "func" onclick = "report"></td>
+          
+        </tr>
+        
+        <tr>
+          <td>Transmit Power</td>
+          <td> <input type = "text" id = "txa"class ="func" placeholder = "Transmit power A"onchange="Radio()"></td>
+           <td><input type="text" id = "txb" class = "func"placeholder = "Transmit power B"onchange="Radio()"></td>
+        </tr>
+        <tr>
+          <td>Antenna Gain:</td>
+          <td><input type="text" id="rxa" class = "func"value = "30"  disabled/></td>
+          <td><input type="text" id="rxb" class = "func"value = "30" disabled/></td>
+        </tr>
+        <tr>
+          <td>Cable Loss:</td>
+          <td><input type = "text" id = "cablelossa" class = "func"value="2" placeholder="cableloss A" onchange="Radio()"></td>
+          <td><input type = "text" id = "cablelossb" class = "func"value="2" placeholder="Cableloss B" onchange="Radio()"></td>
+        </tr>
+        <tr>
+          <td>RSL:</td>
+          <td><input type = "text" id = "rsla" class = "func"placeholder="RSL A"></td>
+          <td><input type = "text" id = "rslb"class = "func" placeholder="RSL B"></td>
+        </tr>
+      </table>
+       
+     </div>
+     <div class="col-lg-5 col-5" id = "secondcontainer">
+      <h3  style= background-color:darksalmon>Elevation Profile</h3>
+      <div id = "elevation_chart"></div> 
+     </div>
+   </div>
+  <div class="row">
+    <div class="col-6 " id = "thirdcontainer">
+      <h3  style= background-color:darksalmon>MAP</h3>
+    <div id = "map2"></div>
+    </div>
+    <div class="col-5 " id = "fourthcontainer">
+      <h3 style= background-color:darksalmon>LINK STATS</h3>
+      <table id = "table2" class = "table">
+        <tr>
+          <th></th>
+          <th>Site A</th>
+          <th>Site B</th>
+        </tr>
+        <tr>
+          <td>Azimuth Angle:</td>
+          <td><input
+            type = "text"
+            name = "Azimuth angle A"
+            id = "Azimuthanglea"class = "func"
+            placeholder="Azimuth angle A" disabled/></td>
+            <td><input
+            type = "text"
+            name = "Azimuth angle B"
+            id = "Azimuthangleb"class = "func"
+            placeholder="Azimuth angle B" disabled/></td>
+        </tr>
+        <tr>
+          <td>Fade Margin:</td>
+          <td><input id="fademargina" class = "func"type="text" size="20" placeholder="Fade Margin A"/></td>  
+          <td><input id="fademarginb" class = "func"type="text" size="20" placeholder="Fade Margin B"/> </td>
+          
+        </tr>
+        <tr>
+          <td>Modulation:</td>
+          <td><input type = "text" name = "modulationa" id = "modulationa" class = "func"placeholder ="ModulationA"></td>
+           <td><input type = "text"name = "modulationb" id = "modulationb"class = "func" placeholder="Modulation B"></td>
+        </tr>
+        <tr>
+          <td>MCS:</td>
+          <td><input
+            type = "text"
+            name = "mcsa"
+            id = "mcsa"class = "func"
+            placeholder="MCS A" ></td>
+            <td><input
+            type = "text"
+            name =  "mcsb"
+            id = "mcsb"class = "func"
+            placeholder="MCS B" ></td>
+        </tr>
+        <tr>
+          <td>FEC:</td>
+          <td><input id="feca" class = "func"type="text" size="20" placeholder="FEC A"></td>  
+          <td><input id="fecb" class = "func" type="text" size="20" placeholder="FEC B"> </td>
+        </tr>
+        <tr>
+          <td>Link Rate:</td>
+          <td><input type = "text" name = "linkratea" id = "linkratea" class = "func"placeholder="Link Rate A"></td>
+          <td><input type = "text"name = "linkrateb" id = "linkrateb"class = "func" placeholder="Link Rate B" ></td>
+        </tr>
+        <tr>
+          <td>Throughput:</td>
+          <td><input type = "text" name = "throughputa" id = "throughputa" class = "func"placeholder ="Thrughput A"></td>
+           <td><input type = "text"name = "throughputb" id = "throughputb" class = "func"placeholder="Throughput" B"></td>
+        </tr>
+      </table>
+       
+    </div>
+  </div>
+</div>
+
+<div class="containerC">
+  <div class="row ">
+    <div class="col-6" id = "fifthcontainer">
+      <table id = "table3" class = "table">
+        <tr>
+          <th style=background-color:darksalmon;>site A</th>
+         
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td><input type = "text "id = "addressa"></td>
+         
+        </tr>
+        <tr>
+          <td>Co-ordinates:</td>
+          <td><input type = "text " id = "co1"></td>
+        </tr>
+        <tr>
+          <td>Azimuth Angle:</td>
+          <td><input type = "text" id ="azimutha"></td>
+        </tr> 
+        <tr>
+          <td>Height:</td>
+          <td><input type = "text" id = "heighta"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-5" id = "sixthcontainer">
+      <table id = "table4" class = "table">
+        <tr>
+          <th style= background-color:darksalmon;>Site B</th>
+          
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td><input type = "text"  id = "addressb"></td>
+        </tr>
+       
+        <tr>
+          <td>Co-ordinates:</td>
+          <td><input type = "text" id = "co2"></td>
+        </tr>
+        <tr>
+          <td>Azimuth Angle:</td>
+          <td><input type = "text" id ="azimuthb"></td>
+        </tr> 
+        <tr>
+          <td>Height:</td>
+          <td><input type = "text" id = "heightb"></td>
+        </tr>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+
+
+
+<table hidden  id="Bandwidth20MHz" class="BandwidthTable">
+  <tr>
+    <th>Min</th>
+    <th>Max</th>
+    <th>MCS</th>
+    <th>Modulation</th>
+    <th>FEC</th>
+    <th>Link Rate</th>
+    <th>Throughput</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>6</td>
+    <td>0</td>
+    <td>BPSK</td>
+    <td>1/2</td>
+    <td>14.4</td>
+    <td>10</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>9</td>
+    <td>1</td>
+    <td>QPSK</td>
+    <td>1/2</td>
+    <td>28.9</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>13</td>
+    <td>2</td>
+    <td>QPSK</td>
+    <td>3/4</td>
+    <td>43.3</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>16</td>
+    <td>3</td>
+    <td>16-QAM</td>
+    <td>1/2</td>
+    <td>57.8</td>
+    <td>40</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>19</td>
+    <td>4</td>
+    <td>16-QAM</td>
+    <td>3/4</td>
+    <td>86.7</td>
+    <td>60</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>22</td>
+    <td>5</td>
+    <td>64-QAM</td>
+    <td>2/3</td>
+    <td>115.6</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>25</td>
+    <td>6</td>
+    <td>64-QAM</td>
+    <td>3/4</td>
+    <td>130</td>
+    <td>91</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>28</td>
+    <td>7</td>
+    <td>64-QAM</td>
+    <td>5/6</td>
+    <td>144.4</td>
+    <td>101</td>
+  </tr>
+  <tr>
+    <td>29</td>
+    <td>29</td>
+    <td>8</td>
+    <td>256-QAM</td>
+    <td>3/4</td>
+    <td>173.3</td>
+    <td>120</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>82</td>
+    <td>9</td>
+    <td>256-QAM</td>
+    <td>5/6</td>
+    <td>192</td>
+    <td>135</td>
+  </tr>
+</table>
+<table hidden id="Bandwidth40MHz" class="BandwidthTable" >
+  <tr>
+    <th>Min</th>
+    <th>Max</th>
+    <th>MCS</th>
+    <th>Modulation</th>
+    <th>FEC</th>
+    <th>Link Rate</th>
+    <th>Throughput</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>5</td>
+    <td>0</td>
+    <td>BPSK</td>
+    <td>1/2</td>
+    <td>30</td>
+    <td>21</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>8</td>
+    <td>1</td>
+    <td>QPSK</td>
+    <td>1/2</td>
+    <td>60</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>12</td>
+    <td>2</td>
+    <td>QPSK</td>
+    <td>3/4</td>
+    <td>90</td>
+    <td>63</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>15</td>
+    <td>3</td>
+    <td>16-QAM</td>
+    <td>1/2</td>
+    <td>120</td>
+    <td>84</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>18</td>
+    <td>4</td>
+    <td>16-QAM</td>
+    <td>3/4</td>
+    <td>180</td>
+    <td>126</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>21</td>
+    <td>5</td>
+    <td>64-QAM</td>
+    <td>2/3</td>
+    <td>240</td>
+    <td>168</td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>25</td>
+    <td>6</td>
+    <td>64-QAM</td>
+    <td>3/4</td>
+    <td>270</td>
+    <td>189</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>28</td>
+    <td>7</td>
+    <td>64-QAM</td>
+    <td>5/6</td>
+    <td>300</td>
+    <td>210</td>
+  </tr>
+  <tr>
+    <td>29</td>
+    <td>29</td>
+    <td>8</td>
+    <td>256-QAM</td>
+    <td>3/4</td>
+    <td>360</td>
+    <td>252</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>80</td>
+    <td>9</td>
+    <td>256-QAM</td>
+    <td>5/6</td>
+    <td>400</td>
+    <td>280</td>
+  </tr>
+</table>
+<table hidden id="Bandwidth80MHz" class="BandwidthTable">
+  <tr>
+    <th>Min</th>
+    <th>Max</th>
+    <th>MCS</th>
+    <th>Modulation</th>
+    <th>FEC</th>
+    <th>Link Rate</th>
+    <th>Throughput</th>
+  </tr>
+
+  <tr>
+    <td>6</td>
+    <td>9</td>
+    <td>0</td>
+    <td>BPSK</td>
+    <td>1/2</td>
+    <td>65</td>
+    <td>45</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>11</td>
+    <td>1</td>
+    <td>QPSK</td>
+    <td>1/2</td>
+    <td>130</td>
+    <td>91</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>14</td>
+    <td>2</td>
+    <td>QPSK</td>
+    <td>3/4</td>
+    <td>195</td>
+    <td>135</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>16</td>
+    <td>3</td>
+    <td>16-QAM</td>
+    <td>1/2</td>
+    <td>260</td>
+    <td>182</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>19</td>
+    <td>4</td>
+    <td>16-QAM</td>
+    <td>3/4</td>
+    <td>390</td>
+    <td>275</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>22</td>
+    <td>5</td>
+    <td>64-QAM</td>
+    <td>2/3</td>
+    <td>520</td>
+    <td>365</td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>25</td>
+    <td>6</td>
+    <td>64-QAM</td>
+    <td>3/4</td>
+    <td>585</td>
+    <td>410</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>29</td>
+    <td>7</td>
+    <td>64-QAM</td>
+    <td>5/6</td>
+    <td>650</td>
+    <td>455</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>30</td>
+    <td>8</td>
+    <td>256-QAM</td>
+    <td>3/4</td>
+    <td>780</td>
+    <td>546</td>
+  </tr>
+  <tr>
+    <td>31</td>
+    <td>80</td>
+    <td>9</td>
+    <td>256-QAM</td>
+    <td>5/6</td>
+    <td>866.7</td>
+    <td>610</td>
+  </tr>
+</table>
+
+    
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="map.js"></script>
+    <script src ="load_another_map.js"></script>
+    <script src = "address_changer.js"></script>
+    <script src = "displaypathelevation.js"></script>
+    <script src = "link_distance_azimuth.js"></script>
+    <script src = "populatefreqency.js"></script>
+    <script src = "Rsl.js"></script>
+    <script src = "snr.js"></script>
+    <script src = "table.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBblibNhgZv9Fey7jVCrgU2twGEVzZeUV0&libraries=places&callback=initMap&v=weekly"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    
+    
+    <script>
+    addressA= document.querySelector("#searchboxA");
+    var autocompleteA =new google.maps.places.Autocomplete(addressA);
+    autocompleteA.addListener('place_changed', function () {
+    var placesA = autocompleteA.getPlace();
+    document.getElementById('lat1lon1').value = placesA.geometry.location.lat().toFixed(4) + "," + placesA.geometry.location.lng().toFixed(4);
+    addmarker();
+    drawPolyline();
+  });
+    addressB= document.querySelector("#searchboxB");
+    var autocompleteB =new google.maps.places.Autocomplete(addressB);
+    autocompleteB.addListener('place_changed', function () {
+    var placesB = autocompleteB.getPlace();
+    document.getElementById('lat2lon2').value = placesB.geometry.location.lat().toFixed(4)+ ","+placesB.geometry.location.lng().toFixed(4);
+    addmarker();
+    drawPolyline();
+    });
+   
+    </script>
+    
+  </body>
+</html>
